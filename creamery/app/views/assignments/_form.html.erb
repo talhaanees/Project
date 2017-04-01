@@ -1,0 +1,44 @@
+<%= form_for(assignment) do |f| %>
+  <% if assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+      <% assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :store_id %>
+    <%= f.number_field :store_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :employee_id %>
+    <%= f.number_field :employee_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date, {prompt: { day: 'Day', month: 'Month', year: 'Year' },  
+                                    start_year: Date.today.year, end_year: Date.today.year - 50}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date, {prompt: { day: 'Day', month: 'Month', year: 'Year' },  
+                                  start_year: Date.today.year + 20, end_year: Date.today.year - 50}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :pay_level %>
+    <%= f.select :pay_level, [1,2,3,4,5,6]%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

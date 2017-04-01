@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @assignment.store_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @assignment.employee_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @assignment.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @assignment.end_date %>
+</p>
+
+<p>
+  <strong>Pay level:</strong>
+  <%= @assignment.pay_level %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

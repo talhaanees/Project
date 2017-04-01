@@ -1,0 +1,53 @@
+<%= form_for(employee) do |f| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :SSN %>
+    <%= f.text_field :SSN, :placeholder => 'xxx-xx-xxxx or xxxxxxxxx'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth, {prompt: { day: 'Day', month: 'Month', year: 'Year' },  
+                                      start_year: Date.today.year, end_year: Date.today.year - 150}%>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, :placeholder => '1-xxx-xxx-xxxx or xxxxxxxxx'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.select :role, ['Employee', 'Manager', 'Admin'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
